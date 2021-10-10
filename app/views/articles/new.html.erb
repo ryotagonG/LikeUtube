@@ -1,0 +1,8 @@
+<h1>新規投稿フォーム</h1>
+<%= form_with model: @article, local:true do |f| %>
+  <h4>レビューしたい動画投稿者名</h4>
+  <%= f.text_field :title %>
+  <h4>オススメしたい動画内容とポイント</h4>
+  <%= f.text_area :body %>
+  <%= f.submit "投稿する" %>
+<% end %>

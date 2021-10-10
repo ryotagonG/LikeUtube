@@ -10,6 +10,29 @@
   </head>
 
   <body>
+      <li><%= link_to "サイト概要", about_path %></li>
+    <% if user_signed_in? %>
+      <li>
+        <%= link_to "新規レビュー投稿", new_article_path %>
+      </li>
+      <li>
+        <%= link_to "レビュー投稿一覧", articles_path %>
+      </li>
+      <li>
+        <%= link_to "マイページ", user_path(current_user.id) %>
+      </li>
+      <li>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to "新規登録", new_user_registration_path %>
+      </li>
+      <li>
+        <%= link_to "ログイン", new_user_session_path %>
+      </li>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

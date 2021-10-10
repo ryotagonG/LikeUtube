@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
-  get 'top' => 'homes#top'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_for :users
+  root to: "homes#top"
+  get "about" => "homes#about" , as: "about"
+  resources :articles
+  resources :comments, only: [:create, :index, :destroy]
+  
+  resources :users, only: [:show]
 end

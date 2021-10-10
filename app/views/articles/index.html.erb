@@ -1,0 +1,10 @@
+<h1>レビュー投稿一覧</h1>
+<% @articles.each do |article| %>
+<div>
+  <%= link_to article_path(article.id) do %>
+    <p>動画投稿者名：<%= article.title %></p>
+  <% end %>
+  <p>レビュー内容：<%= article.body %></p>
+  <p>ユーザーネーム：<%= article.user.name %></p>
+</div>
+<% end %>
