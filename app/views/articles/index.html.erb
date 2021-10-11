@@ -6,5 +6,6 @@
   <% end %>
   <p>レビュー内容：<%= article.body %></p>
   <p>ユーザーネーム：<%= article.user.name %></p>
+  <p><%= link_to "#{article.comments.count} コメント", article_path(article.id) %></p>
 </div>
 <% end %>
