@@ -1,0 +1,9 @@
+<% articles.each do |article| %>
+<div>
+  <p>動画投稿者名：<%= article.title %></p>
+  <p>レビュー内容：<%= article.body %></p>
+  <p>ユーザーネーム：<%= article.user.name %></p>
+  <p><%= link_to "#{article.comments.count} コメント", article_path(article.id) %></p>
+</div>
+<% end %>
+<%= paginate articles %>
