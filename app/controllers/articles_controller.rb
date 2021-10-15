@@ -16,6 +16,7 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.page(params[:page]).reverse_order
+    @ranking = Article.find(Favorite.group(:article_id).order('count(article_id) desc').limit(5).pluck(:article_id))
   end
 
   def show

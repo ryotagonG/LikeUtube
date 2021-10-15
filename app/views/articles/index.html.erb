@@ -1,2 +1,4 @@
-<h1>全レビュー投稿一覧</h1>
-<%= render 'articles/list', articles: @articles %>
+<h1>オススメ投稿</h1>
+<% @ranking.each.with_index(1) do |rank, a| %>
+<%= rank.title %>
+<% end %>
