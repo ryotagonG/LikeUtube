@@ -4,4 +4,19 @@
     <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
 <% end %>
 
+<% unless current_user == @user %>
+  <% if current_user.following?(@user) %>
+    <%= link_to "フォローを外す", user_relationships_path(@user.id), method: :delete %>
+  <% else %>
+    <%= link_to "フォローする", user_relationships_path(@user.id), method: :post %>
+  <% end %>
+<% end %>
+
 <%= render 'articles/list', articles: @articles %>
+
+<%= link_to user_followings_path(@user) do %>
+  フォロー数: <%= @user.followings.count %>
+<% end %>
+    
+
+  フォロワー数: <%= @user.followers.count %>

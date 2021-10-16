@@ -1,7 +1,9 @@
 <div>
   <p>動画投稿者名：<%= @article.title %></p>
   <p>レビュー内容：<%= @article.body %></p>
+  <%= link_to user_path(@article.user_id) do %>
   <p>ユーザーネーム：<%= @article.user.name %></p>
+  <% end %>
   <p>投稿日時：<%= @article.created_at.strftime('%Y/%m/%d') %></p>
   <% if @article.user == current_user %>
     <%= link_to "削除", article_path(@article), method: :delete %>

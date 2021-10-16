@@ -15,8 +15,8 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @articles = Article.page(params[:page]).reverse_order
-    @ranking = Article.find(Favorite.group(:article_id).order('count(article_id) desc').limit(5).pluck(:article_id))
+    #@articles = Article.page(params[:page]).reverse_order
+    @articles = Article.find(Favorite.group(:article_id).order('count(article_id) desc').limit(5).pluck(:article_id))
   end
 
   def show
@@ -31,6 +31,12 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.destroy
     redirect_to articles_path
+  end
+  
+  def search
+    @articles = Article.search(params[:keyword])
+    @keyword = params[:keyword]
+    render "index"
   end
 
   private
