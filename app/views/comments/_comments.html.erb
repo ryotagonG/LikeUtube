@@ -1,0 +1,7 @@
+ <%= article_comment.user.name %>
+   <%= article_comment.created_at.strftime('%Y/%m/%d') %><%= article_comment.comment_body %>
+   <% if article_comment.user == current_user %>
+   <div>
+     <%= link_to "削除", article_comment_path(article_comment.article, article_comment), remote: true, method: :delete %>
+   </div>
+ <% end %>

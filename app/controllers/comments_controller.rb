@@ -6,12 +6,12 @@ class CommentsController < ApplicationController
     comment.article_id = article.id
     comment.user_id = current_user.id
     comment.save
-    redirect_to article_path(article)
+    @new_article_comment = comment
   end
 
   def destroy
     Comment.find_by(id: params[:id]).destroy
-    redirect_to article_path(params[:article_id])
+    @comment_id = params[:id]
   end
 
   private

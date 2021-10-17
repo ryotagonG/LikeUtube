@@ -1,0 +1,2 @@
+$('#comments').append('<li id="comments-<%= @new_article_comment.id %>"><%= j(render "comments/comments", article_comment: @new_article_comment) %></li>');
+$('textarea').val("");
