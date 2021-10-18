@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!,except: [:about]
+  before_action :authenticate_user! ,except: [:about, :top]
   before_action :configure_permitted_parameters, if: :devise_controller?
-  
+
   def after_sign_in_path_for(resource)
-    articles_path
+    new_article_path
   end
 
   protected

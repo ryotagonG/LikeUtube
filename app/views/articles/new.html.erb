@@ -1,4 +1,4 @@
-<h1>新規投稿フォーム</h1>
+<h1 style="text-align:center">新規投稿フォーム</h1>
 <% if @article.errors.any? %>
   <%= @article.errors.count %>件のエラーが発生しました
   <% @article.errors.full_messages.each do |message| %>
@@ -13,3 +13,4 @@
   <%= f.text_area :body %>
   <%= f.submit "投稿する" %>
 <% end %>
+</div>

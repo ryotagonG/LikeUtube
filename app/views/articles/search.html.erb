@@ -1,0 +1,25 @@
+<h2 style="text-align:center">検索結果一覧</h2>
+<% if @articles.exists? %>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>動画投稿者</th>
+      <th>オススメポイント</th>
+    </tr>
+  </thead>
+  <% @articles.each do |articles| %>
+  <tbody>
+    <tr>
+      <td>
+        <%= link_to article_path(articles) do %>
+          <%= articles.title %>
+        <% end %>
+      </td>
+      <td><%= articles.body %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
+<% else %>
+  <p>検索がヒットしませんでした</p>
+<% end %>

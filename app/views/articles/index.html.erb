@@ -1,12 +1,26 @@
-<h2>オススメ投稿一覧</h2>
-<div>
-  <p>動画投稿者名</p>
-    <table>
-      <% @articles.each.with_index(1) do |rank, i| %>
-        <%= link_to article_path(rank) do %>
-          第<%= i %>位<p><%= rank.title %></p>
-        <% end %>
-      <% end %>
-    </table>
-</div>
+<h2 style="text-align:center">ランキング</h2>
+<h5 style="text-align:center">いいね数のランキングです</h5>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>順位</th>
+      <th>動画投稿者名</th>
+      <th>オススメポイント</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @articles.each.with_index(1) do |rank, i| %>
+      <tr>
+        <th scope="row"><%= i %></th>
+        <td>
+          <%= link_to article_path(rank) do %>
+            <%= rank.title %>
+          <% end %>
+        </td>
+        <td><%= rank.body %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 

@@ -36,7 +36,6 @@ class ArticlesController < ApplicationController
   def search
     @articles = Article.search(params[:keyword])
     @keyword = params[:keyword]
-    render "index"
   end
 
   private
