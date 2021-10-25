@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   def show
     @user = User.find(params[:id])
     @articles = @user.articles.page(params[:page]).reverse_order
@@ -20,5 +19,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :introduction)
   end
-
 end

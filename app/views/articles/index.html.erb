@@ -1,11 +1,12 @@
-<h2 style="text-align:center">ランキング</h2>
-<h5 style="text-align:center">いいね数のランキングです</h5>
+<h2 class="text-center">ランキング</h2><hr>
+<h5 class="text-center">いいね数のランキングです</h5><hr>
 <table class="table">
   <thead class="thead-dark">
     <tr>
       <th>順位</th>
       <th>動画投稿者名</th>
       <th>オススメポイント</th>
+      <th>いいね数</th>
     </tr>
   </thead>
   <tbody>
@@ -18,6 +19,7 @@
           <% end %>
         </td>
         <td><%= rank.body %></td>
+        <td><%= rank.favorites.count %></td>
       </tr>
     <% end %>
   </tbody>

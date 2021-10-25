@@ -1,4 +1,6 @@
-<h1 style="text-align:center"><%= @user.name %>のユーザーページ</h1>
+<div class="container-fluid">
+
+<h2 class="text-center"><%= @user.name %>のユーザーページ</h2><hr>
 <main class="row">
   <div class="col-12 col-sm-8">
 <div class="container">
@@ -34,12 +36,14 @@
       <%= link_to "プロフィール編集", edit_user_path(@user) %>
     <% end %>
   </p>
+  
+  <p>
+    <%= @user.introduction %>
+  </p>
   </div>
   </div>
 </div>
 
 </main>
 
-<style>
-  /*.table-wrapper { display: flex; justify-content: center; }*/
-</style>
+</div>

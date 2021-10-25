@@ -1,3 +1,7 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-3 col-md-3"></div>
+      <div class="col-xs-6 col-md-6 text-center">
 <%- if controller_name != 'sessions' %>
   <%= link_to "既にアカウントをお持ちの方はこちら", new_session_path(resource_name) %><br />
 <% end %>
@@ -23,3 +27,8 @@
     <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), method: :post %><br />
   <% end %>
 <% end %>
+
+    </div>
+  <div class="col-xs-3 col-md-3"></div>
+  </div>
+</div>

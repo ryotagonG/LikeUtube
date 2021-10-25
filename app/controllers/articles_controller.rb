@@ -1,5 +1,4 @@
 class ArticlesController < ApplicationController
-
   def new
     @article = Article.new
   end
@@ -15,7 +14,7 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    #@articles = Article.page(params[:page]).reverse_order
+    # @articles = Article.page(params[:page]).reverse_order
     @articles = Article.find(Favorite.group(:article_id).order('count(article_id) desc').limit(5).pluck(:article_id))
   end
 
@@ -24,15 +23,14 @@ class ArticlesController < ApplicationController
     @comment = Comment.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def destroy
     @article = Article.find(params[:id])
     @article.destroy
     redirect_to articles_path
   end
-  
+
   def search
     @articles = Article.search(params[:keyword])
     @keyword = params[:keyword]

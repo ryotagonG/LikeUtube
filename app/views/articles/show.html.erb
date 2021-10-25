@@ -1,34 +1,39 @@
-<div>
-  <p>動画投稿者名：<%= @article.title %></p>
-  <p>レビュー内容：<%= @article.body %></p>
-  <p>
-    <%= link_to user_path(@article.user_id) do %>
-  ユーザーネーム：<%= @article.user.name %>
-  <% end %>
-  </p>
-  <p>投稿日時：<%= @article.created_at.strftime('%Y/%m/%d') %></p>
-  <% if @article.user == current_user %>
-    <%= link_to "削除", article_path(@article), method: :delete %>
-  <% end %>
+<h2 class="text-center">記事詳細ページ</h2><hr>
+<div class="w-50 m-auto">
+  <ul class="list-group">
+    <li class="list-group-item">動画投稿者名：<%= @article.title %></li>
+    <li class="list-group-item">レビュー内容：<%= @article.body %></li>
+    <li class="list-group-item">
+      <%= link_to user_path(@article.user_id) do %>
+        ユーザーネーム：<%= @article.user.name %>
+      <% end %>
+    </li>
+    <li class="list-group-item">投稿日時：<%= @article.created_at.strftime('%Y/%m/%d') %></li><br>
 
-  <div id="favorite_buttons_<%= @article.id %>">
-　　　<%= render "favorites/favorites", article: @article %>
-　</div>
-</div>
+    <li>
+      <% if @article.user == current_user %>
+        <%= link_to "投稿を削除", article_path(@article), method: :delete, class:"btn btn-danger w-25 float-right" %>
+      <% end %>
+    </li><hr>
 
-<div>
-<p>コメント数：<%= @article.comments.count %></p>
-<ul id="comments">
-<% @article.comments.each do |article_comment| %>
-  <li id="comments-<%= article_comment.id %>">
-　  <%= render "comments/comments", article_comment: article_comment %>
-  </li>
-<% end %>
-</ul>
-</div>
-<div>
-<%= form_with(model:[@article, @comment]) do |f| %>
-  <%= f.text_area :comment_body, rows:'5',placeholder: "コメントを入力" %>
-  <%= f.submit "送信" %>
-<% end %>
+    <div class="border_bottom"></div>
+
+    <li id="favorite_buttons_<%= @article.id %>">
+  　　　<%= render "favorites/favorites", article: @article %>
+  　</li>
+
+    コメント数：<%= @article.comments.count %>
+    <li id="comments">
+      <% @article.comments.each do |article_comment| %>
+        <div id="comments-<%= article_comment.id %>">
+      　  <%= render "comments/comments", article_comment: article_comment %>
+        </div>
+      <% end %>
+    </li>
+    </li><br>
+    <%= form_with(model:[@article, @comment]) do |f| %>
+      <%= f.text_area :comment_body, rows:'5',placeholder: "コメントを入力", class:"form-control" %><br>
+      <div class="center-div"><%= f.submit "送信", class:"btn btn-primary btn-lg w-25"%></div>
+    <% end %>
+  </ul>
 </div>

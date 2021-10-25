@@ -10,72 +10,50 @@
   </head>
   <body>
   <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">LikeUtube</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <% if user_signed_in? %>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link"><%= link_to "サイト概要", about_path %></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link"><%= link_to "新規レビュー投稿", new_article_path %></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link"><%= link_to "ランキング", articles_path %></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link"><%= link_to "マイページ", user_path(current_user.id) %></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a>
-          </li>
-
-        </ul>
-        <%= form_with url: search_path, method: :get, local: true do |f| %>
-
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            <%= f.text_field :keyword, value: @keyword %>
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-                <%= f.submit "検索" %>
-            </button>
-          </form>
-        <% end %>
-        <% else %>
-          <li>
-            <%= link_to "新規登録", new_user_registration_path %>
-          </li>
-          <li>
-            <%= link_to "ログイン", new_user_session_path %>
-          </li>
-        <% end %>
-      </div>
-    </nav>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/">LikeUtube</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <%= link_to "サイト概要", about_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Disabled</a>
-      </li>
-    </ul>
-      <%= form_with url: search_path, method: :get, local: true, class: "form-inline my-2 my-lg-0" do |f| %>
-      <%= f.text_field :keyword, value: @keyword, class: "form-control mr-sm-2", placeholder: "検索ワードを入力", aria: { label: '検索' } %>
-      <%= button_tag "検索", class: "btn btn-outline-success my-2 my-sm-0" %>
-      <% end %>
-  </div>
-</nav>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+  　　　　　　<% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to "サイト概要", about_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "新規レビュー投稿", new_article_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "ランキング", articles_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "マイページ", user_path(current_user.id), class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link" %>
+            </li>
+  　　　　　　<% else %>
+  　　　   　　<li class="nav-item">
+              <%= link_to "サイト概要", about_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "新規登録", new_user_registration_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "ログイン", new_user_session_path, class: "nav-link" %>
+            </li>
+  　　　　　　<% end %>
+        　</ul>
+      　　　<% if user_signed_in? %>
+            <%= form_with url: search_path, method: :get, local: true, class: "form-inline my-2 my-lg-0" do |f| %>
+            <%= f.text_field :keyword, value: @keyword, class: "form-control mr-sm-2", placeholder: "検索ワードを入力", aria: { label: '検索' } %>
+            <%= button_tag "検索", class: "btn btn-outline-success my-2 my-sm-0" %>
+            <% end %>
+　　　　　<% end %>
+        </div>
+      </nav>
   </header>
   <%= yield %>
   </body>
