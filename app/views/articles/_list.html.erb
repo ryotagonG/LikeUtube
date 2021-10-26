@@ -12,7 +12,7 @@
     <% articles.each do |article| %>
     <tr>
       <td><%= article.title %></td>
-      <td><%= link_to article.body, article_path(article.id) %></td>
+      <td><%= link_to article.body.truncate(20), article_path(article.id) %></td>
       <td><%= article.user.name %></td>
       <td><%= "#{article.comments.count} コメント" %></td>
     </tr>

@@ -76,3 +76,4 @@ gem 'refile-mini_magick'
 gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
 gem 'pry-byebug'
+gem 'rails-i18n'

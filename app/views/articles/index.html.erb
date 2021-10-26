@@ -18,7 +18,7 @@
             <%= rank.title %>
           <% end %>
         </td>
-        <td><%= rank.body %></td>
+        <td><%= rank.body.truncate(20) %></td>
         <td><%= rank.favorites.count %></td>
       </tr>
     <% end %>
