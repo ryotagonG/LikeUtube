@@ -21,7 +21,6 @@
     <li id="favorite_buttons_<%= @article.id %>">
   　　　<%= render "favorites/favorites", article: @article %>
   　</li>
-
     コメント数：<%= @article.comments.count %>
     <li id="comments">
       <% @article.comments.each do |article_comment| %>

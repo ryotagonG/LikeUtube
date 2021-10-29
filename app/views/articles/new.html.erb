@@ -5,14 +5,12 @@
     </div>
   </div>
 </div>
-
 <% if @article.errors.any? %>
   <%= @article.errors.count %>件のエラーが発生しました
   <% @article.errors.full_messages.each do |message| %>
     <%= message %>
   <% end %>
 <% end %>
-
 <div class="container">
   <div class="row">
     <div class="col-xs-3 col-md-3"></div>
