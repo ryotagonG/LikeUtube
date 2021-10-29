@@ -1,4 +1,4 @@
-<h2 style="text-align:center">検索結果一覧</h2>
+<h2 style="text-align:center">検索結果一覧</h2><hr>
 <% if @articles.exists? %>
 <table class="table">
   <thead class="thead-dark">
@@ -21,5 +21,5 @@
   <% end %>
 </table>
 <% else %>
-  <p>検索がヒットしませんでした</p>
+  <p class="text-center">検索がヒットしませんでした</p>
 <% end %>
