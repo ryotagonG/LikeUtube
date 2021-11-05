@@ -3,6 +3,7 @@
   <ul class="list-group">
     <li class="list-group-item">動画投稿者名：<%= @article.title %></li>
     <li class="list-group-item">レビュー内容：<%= @article.body %></li>
+    <li class="list-group-item">チャンネルURL：<%= @article.url %></li>
     <li class="list-group-item">
       <%= link_to user_path(@article.user_id) do %>
         ユーザーネーム：<%= @article.user.name %>
