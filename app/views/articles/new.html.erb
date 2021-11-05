@@ -17,9 +17,11 @@
     <div class="col-xs-6 col-md-6">
       <%= form_with model: @article, local:true do |f| %>
         <h4>レビューしたい動画投稿者名</h4>
-        <%= f.text_field :title, class:"form-control" %><br>
+          <%= f.text_field :title, class:"form-control" %><br>
         <h4>オススメしたい動画内容とポイント</h4>
-        <%= f.text_area :body, class:"form-control" %><br>
+          <%= f.text_area :body, class:"form-control" %><br>
+        <h4>投稿者チャンネルURL</h4>
+          <%= f.text_field :url, class:"form-control" %><br>
         <div class="center-div"><%= f.submit "投稿する", class:"btn btn-success w-50" %></div>
       <% end %>
     </div>
